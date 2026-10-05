@@ -1,0 +1,799 @@
+{
+ "DR": 6.0,
+ "stats": {
+  "chains_with_obs": 174,
+  "obs": 661,
+  "obs_at_mode": 496,
+  "chains_scored": 48,
+  "rays_scored": 238,
+  "rays_off": 30
+ },
+ "cases": [
+  {
+   "collection": "1",
+   "name": "wraps1",
+   "ray": 472974,
+   "chain_points": [
+    40
+   ],
+   "z": 16920,
+   "ray_offset_windings": 1,
+   "u_ray": 21.26,
+   "chain_mode": 20,
+   "mode_support_rays": 4,
+   "mode_support_points": 6,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     5850.91015625,
+     4364.8359375,
+     16920.185546875
+    ]
+   ]
+  },
+  {
+   "collection": "116",
+   "name": "col108",
+   "ray": 176247,
+   "chain_points": [
+    9
+   ],
+   "z": 14584,
+   "ray_offset_windings": 12,
+   "u_ray": 38.9,
+   "chain_mode": 27,
+   "mode_support_rays": 3,
+   "mode_support_points": 2,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     5326.91259765625,
+     4431.16259765625,
+     14583.75390625
+    ]
+   ]
+  },
+  {
+   "collection": "123",
+   "name": "col115",
+   "ray": 3136,
+   "chain_points": [
+    3
+   ],
+   "z": 12862,
+   "ray_offset_windings": -2,
+   "u_ray": 13.39,
+   "chain_mode": 15,
+   "mode_support_rays": 9,
+   "mode_support_points": 7,
+   "other_rays_same_points_agree_with_mode": 1,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     4281.32861328125,
+     4624.818359375,
+     12862.2998046875
+    ]
+   ]
+  },
+  {
+   "collection": "141",
+   "name": "col133",
+   "ray": 250991,
+   "chain_points": [
+    3
+   ],
+   "z": 12253,
+   "ray_offset_windings": 1,
+   "u_ray": 58.94,
+   "chain_mode": 58,
+   "mode_support_rays": 3,
+   "mode_support_points": 3,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     3180.477783203125,
+     4114.21142578125,
+     12253.2958984375
+    ]
+   ]
+  },
+  {
+   "collection": "155",
+   "name": "col147",
+   "ray": 7036,
+   "chain_points": [
+    4
+   ],
+   "z": 8980,
+   "ray_offset_windings": -1,
+   "u_ray": 13.24,
+   "chain_mode": 14,
+   "mode_support_rays": 10,
+   "mode_support_points": 13,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     4585.2900390625,
+     3551.313232421875,
+     8979.8798828125
+    ]
+   ]
+  },
+  {
+   "collection": "155",
+   "name": "col147",
+   "ray": 334871,
+   "chain_points": [
+    35
+   ],
+   "z": 8980,
+   "ray_offset_windings": 2,
+   "u_ray": 16.38,
+   "chain_mode": 14,
+   "mode_support_rays": 10,
+   "mode_support_points": 13,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     4097.3017578125,
+     3862.222900390625,
+     8979.8798828125
+    ]
+   ]
+  },
+  {
+   "collection": "16",
+   "name": "col12",
+   "ray": 21022,
+   "chain_points": [
+    0,
+    1,
+    2
+   ],
+   "z": 15334,
+   "ray_offset_windings": 2,
+   "u_ray": 14.12,
+   "chain_mode": 14,
+   "mode_support_rays": 5,
+   "mode_support_points": 8,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     4779.88134765625,
+     4623.85595703125,
+     15333.587890625
+    ],
+    [
+     4797.6884765625,
+     4623.85595703125,
+     15333.587890625
+    ],
+    [
+     4818.6748046875,
+     4622.583984375,
+     15333.587890625
+    ]
+   ]
+  },
+  {
+   "collection": "16",
+   "name": "col12",
+   "ray": 43850,
+   "chain_points": [
+    2
+   ],
+   "z": 15334,
+   "ray_offset_windings": 1,
+   "u_ray": 14.81,
+   "chain_mode": 14,
+   "mode_support_rays": 5,
+   "mode_support_points": 8,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     4818.6748046875,
+     4622.583984375,
+     15333.587890625
+    ]
+   ]
+  },
+  {
+   "collection": "180",
+   "name": "col172",
+   "ray": 186900,
+   "chain_points": [
+    26
+   ],
+   "z": 8879,
+   "ray_offset_windings": -1,
+   "u_ray": 13.07,
+   "chain_mode": 14,
+   "mode_support_rays": 6,
+   "mode_support_points": 8,
+   "other_rays_same_points_agree_with_mode": 1,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     4089.99755859375,
+     2686.026123046875,
+     8878.96875
+    ]
+   ]
+  },
+  {
+   "collection": "2",
+   "name": "wraps2",
+   "ray": 134617,
+   "chain_points": [
+    11,
+    12,
+    13
+   ],
+   "z": 16920,
+   "ray_offset_windings": 12,
+   "u_ray": 28.91,
+   "chain_mode": 19,
+   "mode_support_rays": 4,
+   "mode_support_points": 5,
+   "other_rays_same_points_agree_with_mode": 4,
+   "other_rays_same_points": 4,
+   "points": [
+    [
+     4805.5703125,
+     5395.5771484375,
+     16920.185546875
+    ],
+    [
+     4813.74853515625,
+     5401.60302734375,
+     16920.185546875
+    ],
+    [
+     4821.92724609375,
+     5410.2119140625,
+     16920.185546875
+    ]
+   ]
+  },
+  {
+   "collection": "27",
+   "name": "col22",
+   "ray": 356196,
+   "chain_points": [
+    0,
+    1,
+    2
+   ],
+   "z": 15092,
+   "ray_offset_windings": -1,
+   "u_ray": 56.04,
+   "chain_mode": 57,
+   "mode_support_rays": 4,
+   "mode_support_points": 4,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     4135.0,
+     3384.81640625,
+     15091.67578125
+    ],
+    [
+     4135.0,
+     3371.04248046875,
+     15093.828125
+    ],
+    [
+     4135.0,
+     3357.69873046875,
+     15096.841796875
+    ]
+   ]
+  },
+  {
+   "collection": "27",
+   "name": "col22",
+   "ray": 391270,
+   "chain_points": [
+    8
+   ],
+   "z": 15080,
+   "ray_offset_windings": -1,
+   "u_ray": 55.87,
+   "chain_mode": 57,
+   "mode_support_rays": 4,
+   "mode_support_points": 4,
+   "other_rays_same_points_agree_with_mode": 2,
+   "other_rays_same_points": 2,
+   "points": [
+    [
+     4135.0,
+     3274.193359375,
+     15080.484375
+    ]
+   ]
+  },
+  {
+   "collection": "28",
+   "name": "col23",
+   "ray": 468492,
+   "chain_points": [
+    6
+   ],
+   "z": 15733,
+   "ray_offset_windings": 2,
+   "u_ray": 61.08,
+   "chain_mode": 59,
+   "mode_support_rays": 4,
+   "mode_support_points": 3,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     3279.6240234375,
+     5877.1845703125,
+     15732.703125
+    ]
+   ]
+  },
+  {
+   "collection": "280",
+   "name": "col262",
+   "ray": 194672,
+   "chain_points": [
+    3,
+    4
+   ],
+   "z": 11825,
+   "ray_offset_windings": 1,
+   "u_ray": 37.09,
+   "chain_mode": 36,
+   "mode_support_rays": 3,
+   "mode_support_points": 2,
+   "other_rays_same_points_agree_with_mode": 1,
+   "other_rays_same_points": 2,
+   "points": [
+    [
+     5159.70263671875,
+     3592.29638671875,
+     11825.36328125
+    ],
+    [
+     5176.4453125,
+     3595.958740234375,
+     11825.36328125
+    ]
+   ]
+  },
+  {
+   "collection": "280",
+   "name": "col262",
+   "ray": 169422,
+   "chain_points": [
+    4
+   ],
+   "z": 11825,
+   "ray_offset_windings": 2,
+   "u_ray": 37.87,
+   "chain_mode": 36,
+   "mode_support_rays": 3,
+   "mode_support_points": 2,
+   "other_rays_same_points_agree_with_mode": 1,
+   "other_rays_same_points": 2,
+   "points": [
+    [
+     5176.4453125,
+     3595.958740234375,
+     11825.36328125
+    ]
+   ]
+  },
+  {
+   "collection": "280",
+   "name": "col262",
+   "ray": 280019,
+   "chain_points": [
+    9,
+    10
+   ],
+   "z": 11825,
+   "ray_offset_windings": 4,
+   "u_ray": 40.49,
+   "chain_mode": 36,
+   "mode_support_rays": 3,
+   "mode_support_points": 2,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     5264.3427734375,
+     3599.62109375,
+     11825.36328125
+    ],
+    [
+     5274.28369140625,
+     3598.57470703125,
+     11825.36328125
+    ]
+   ]
+  },
+  {
+   "collection": "280",
+   "name": "col262",
+   "ray": 249856,
+   "chain_points": [
+    10
+   ],
+   "z": 11825,
+   "ray_offset_windings": 5,
+   "u_ray": 40.54,
+   "chain_mode": 36,
+   "mode_support_rays": 3,
+   "mode_support_points": 2,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     5274.28369140625,
+     3598.57470703125,
+     11825.36328125
+    ]
+   ]
+  },
+  {
+   "collection": "288",
+   "name": "col270",
+   "ray": 223229,
+   "chain_points": [
+    0
+   ],
+   "z": 12529,
+   "ray_offset_windings": -1,
+   "u_ray": 53.78,
+   "chain_mode": 55,
+   "mode_support_rays": 3,
+   "mode_support_points": 4,
+   "other_rays_same_points_agree_with_mode": 1,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     3155.125732421875,
+     3844.9033203125,
+     12529.3837890625
+    ]
+   ]
+  },
+  {
+   "collection": "29",
+   "name": "col24",
+   "ray": 508303,
+   "chain_points": [
+    19
+   ],
+   "z": 15748,
+   "ray_offset_windings": -1,
+   "u_ray": 55.15,
+   "chain_mode": 56,
+   "mode_support_rays": 3,
+   "mode_support_points": 3,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     3398.846923828125,
+     3358.75146484375,
+     15747.841796875
+    ]
+   ]
+  },
+  {
+   "collection": "307",
+   "name": "col289",
+   "ray": 8031,
+   "chain_points": [
+    4
+   ],
+   "z": 10195,
+   "ray_offset_windings": -2,
+   "u_ray": 13.43,
+   "chain_mode": 15,
+   "mode_support_rays": 4,
+   "mode_support_points": 4,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     4625.36083984375,
+     3294.1611328125,
+     10195.02734375
+    ]
+   ]
+  },
+  {
+   "collection": "34",
+   "name": "col29",
+   "ray": 239934,
+   "chain_points": [
+    30,
+    31
+   ],
+   "z": 8450,
+   "ray_offset_windings": 1,
+   "u_ray": 16.13,
+   "chain_mode": 15,
+   "mode_support_rays": 3,
+   "mode_support_points": 5,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     4672.7724609375,
+     4234.91552734375,
+     8450.0
+    ],
+    [
+     4664.92431640625,
+     4243.81005859375,
+     8450.0
+    ]
+   ]
+  },
+  {
+   "collection": "54",
+   "name": "col47",
+   "ray": 816676,
+   "chain_points": [
+    1
+   ],
+   "z": 8249,
+   "ray_offset_windings": 1,
+   "u_ray": 94.94,
+   "chain_mode": 94,
+   "mode_support_rays": 5,
+   "mode_support_points": 6,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     3648.64599609375,
+     1947.011962890625,
+     8249.0419921875
+    ]
+   ]
+  },
+  {
+   "collection": "54",
+   "name": "col47",
+   "ray": 859202,
+   "chain_points": [
+    1,
+    2
+   ],
+   "z": 8249,
+   "ray_offset_windings": 2,
+   "u_ray": 95.36,
+   "chain_mode": 94,
+   "mode_support_rays": 5,
+   "mode_support_points": 6,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     3648.64599609375,
+     1947.011962890625,
+     8249.0419921875
+    ],
+    [
+     3652.613525390625,
+     1935.6512451171875,
+     8255.3203125
+    ]
+   ]
+  },
+  {
+   "collection": "54",
+   "name": "col47",
+   "ray": 944971,
+   "chain_points": [
+    9,
+    10
+   ],
+   "z": 8296,
+   "ray_offset_windings": 1,
+   "u_ray": 94.57,
+   "chain_mode": 94,
+   "mode_support_rays": 5,
+   "mode_support_points": 6,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     3689.01025390625,
+     1831.428466796875,
+     8296.1298828125
+    ],
+    [
+     3691.770263671875,
+     1823.525390625,
+     8299.26953125
+    ]
+   ]
+  },
+  {
+   "collection": "54",
+   "name": "col47",
+   "ray": 1032452,
+   "chain_points": [
+    12,
+    13
+   ],
+   "z": 8318,
+   "ray_offset_windings": 1,
+   "u_ray": 95.04,
+   "chain_mode": 94,
+   "mode_support_rays": 5,
+   "mode_support_points": 6,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     3710.7451171875,
+     1769.191162109375,
+     8318.1044921875
+    ],
+    [
+     3714.367431640625,
+     1758.818359375,
+     8316.53515625
+    ]
+   ]
+  },
+  {
+   "collection": "66",
+   "name": "col58",
+   "ray": 187628,
+   "chain_points": [
+    30
+   ],
+   "z": 9185,
+   "ray_offset_windings": -1,
+   "u_ray": 11.59,
+   "chain_mode": 13,
+   "mode_support_rays": 5,
+   "mode_support_points": 8,
+   "other_rays_same_points_agree_with_mode": 1,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     3656.1669921875,
+     2767.26171875,
+     9185.2451171875
+    ]
+   ]
+  },
+  {
+   "collection": "71",
+   "name": "col63",
+   "ray": 163299,
+   "chain_points": [
+    2
+   ],
+   "z": 9393,
+   "ray_offset_windings": 13,
+   "u_ray": 47.25,
+   "chain_mode": 34,
+   "mode_support_rays": 4,
+   "mode_support_points": 4,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     4983.484375,
+     2930.894775390625,
+     9392.87109375
+    ]
+   ]
+  },
+  {
+   "collection": "71",
+   "name": "col63",
+   "ray": 272472,
+   "chain_points": [
+    11
+   ],
+   "z": 9407,
+   "ray_offset_windings": 1,
+   "u_ray": 34.98,
+   "chain_mode": 34,
+   "mode_support_rays": 4,
+   "mode_support_points": 4,
+   "other_rays_same_points_agree_with_mode": 1,
+   "other_rays_same_points": 1,
+   "points": [
+    [
+     5058.98388671875,
+     2802.91796875,
+     9406.9970703125
+    ]
+   ]
+  },
+  {
+   "collection": "92",
+   "name": "col84",
+   "ray": 240627,
+   "chain_points": [
+    36
+   ],
+   "z": 8750,
+   "ray_offset_windings": 1,
+   "u_ray": 16.08,
+   "chain_mode": 15,
+   "mode_support_rays": 3,
+   "mode_support_points": 5,
+   "other_rays_same_points_agree_with_mode": 0,
+   "other_rays_same_points": 0,
+   "points": [
+    [
+     5820.20458984375,
+     4378.85205078125,
+     8750.0
+    ]
+   ]
+  },
+  {
+   "collection": "96",
+   "name": "col88",
+   "ray": 734549,
+   "chain_points": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "z": 8750,
+   "ray_offset_windings": 1,
+   "u_ray": 85.68,
+   "chain_mode": 85,
+   "mode_support_rays": 3,
+   "mode_support_points": 7,
+   "other_rays_same_points_agree_with_mode": 3,
+   "other_rays_same_points": 6,
+   "points": [
+    [
+     2997.98876953125,
+     3425.528076171875,
+     8750.0
+    ],
+    [
+     2986.302978515625,
+     3431.19384765625,
+     8750.0
+    ],
+    [
+     2978.866455078125,
+     3434.02685546875,
+     8750.0
+    ],
+    [
+     2971.075927734375,
+     3438.276123046875,
+     8750.0
+    ],
+    [
+     2961.869140625,
+     3439.692626953125,
+     8750.0
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "n_rays": 1147551,
+ "n_crossings": 22706484,
+ "seed_range": [
+  10.0,
+  127.0
+ ],
+ "seeds_all_integer": true,
+ "seed_frac_median": 0.0,
+ "crossings_per_ray": {
+  "median": 19,
+  "p10": 11,
+  "p90": 29,
+  "max": 41
+ },
+ "multi_ray_human_points": null,
+ "note": "No human relative_windings provided. Population multi-ray rates and confirmation are unavailable. Do NOT treat seed consistency as confirmed."
+}

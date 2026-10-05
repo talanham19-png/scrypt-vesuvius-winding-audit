@@ -1,0 +1,131 @@
+{
+ "pred_run": "20260801084232 (Aug-01)",
+ "held_out_crops": [
+  "L3_20_4_8.npz",
+  "L3_22_9_8.npz",
+  "L3_24_7_5.npz"
+ ],
+ "by_config": {
+  "permissive": {
+   "kw": {
+    "stop_presence": 110,
+    "min_coherence": 0.7,
+    "fork_ratio": 0
+   },
+   "n_crops": 3,
+   "per_crop": [
+    {
+     "crop": "L3_20_4_8.npz",
+     "n_gt_runs": 40,
+     "seeded_deviation_rate": 0.4079,
+     "seeded_mean_correct_steps": 41.29,
+     "auto_clean_frac": 0.4222,
+     "auto_gt_recall": 0.3089,
+     "auto_touching_gt": 90
+    },
+    {
+     "crop": "L3_22_9_8.npz",
+     "n_gt_runs": 47,
+     "seeded_deviation_rate": 0.6383,
+     "seeded_mean_correct_steps": 32.23,
+     "auto_clean_frac": 0.2738,
+     "auto_gt_recall": 0.1905,
+     "auto_touching_gt": 84
+    },
+    {
+     "crop": "L3_24_7_5.npz",
+     "n_gt_runs": 56,
+     "seeded_deviation_rate": 0.5446,
+     "seeded_mean_correct_steps": 35.8,
+     "auto_clean_frac": 0.2796,
+     "auto_gt_recall": 0.1593,
+     "auto_touching_gt": 93
+    }
+   ],
+   "mean_seeded_deviation_rate": 0.5303,
+   "mean_seeded_correct_steps": 36.44,
+   "mean_auto_clean_frac": 0.3252,
+   "mean_auto_gt_recall": 0.2195,
+   "total_gt_runs": 143
+  },
+  "default": {
+   "kw": {},
+   "n_crops": 3,
+   "per_crop": [
+    {
+     "crop": "L3_20_4_8.npz",
+     "n_gt_runs": 40,
+     "seeded_deviation_rate": 0.3026,
+     "seeded_mean_correct_steps": 27.58,
+     "auto_clean_frac": 0.6015,
+     "auto_gt_recall": 0.4162,
+     "auto_touching_gt": 133
+    },
+    {
+     "crop": "L3_22_9_8.npz",
+     "n_gt_runs": 47,
+     "seeded_deviation_rate": 0.3723,
+     "seeded_mean_correct_steps": 19.74,
+     "auto_clean_frac": 0.5474,
+     "auto_gt_recall": 0.3253,
+     "auto_touching_gt": 137
+    },
+    {
+     "crop": "L3_24_7_5.npz",
+     "n_gt_runs": 56,
+     "seeded_deviation_rate": 0.3571,
+     "seeded_mean_correct_steps": 23.28,
+     "auto_clean_frac": 0.5291,
+     "auto_gt_recall": 0.3122,
+     "auto_touching_gt": 172
+    }
+   ],
+   "mean_seeded_deviation_rate": 0.344,
+   "mean_seeded_correct_steps": 23.53,
+   "mean_auto_clean_frac": 0.5593,
+   "mean_auto_gt_recall": 0.3512,
+   "total_gt_runs": 143
+  },
+  "conservative": {
+   "kw": {
+    "min_coherence": 0.93
+   },
+   "n_crops": 3,
+   "per_crop": [
+    {
+     "crop": "L3_20_4_8.npz",
+     "n_gt_runs": 40,
+     "seeded_deviation_rate": 0.2632,
+     "seeded_mean_correct_steps": 20.51,
+     "auto_clean_frac": 0.6667,
+     "auto_gt_recall": 0.452,
+     "auto_touching_gt": 159
+    },
+    {
+     "crop": "L3_22_9_8.npz",
+     "n_gt_runs": 47,
+     "seeded_deviation_rate": 0.2872,
+     "seeded_mean_correct_steps": 17.34,
+     "auto_clean_frac": 0.6233,
+     "auto_gt_recall": 0.3429,
+     "auto_touching_gt": 146
+    },
+    {
+     "crop": "L3_24_7_5.npz",
+     "n_gt_runs": 56,
+     "seeded_deviation_rate": 0.3214,
+     "seeded_mean_correct_steps": 21.58,
+     "auto_clean_frac": 0.544,
+     "auto_gt_recall": 0.3169,
+     "auto_touching_gt": 182
+    }
+   ],
+   "mean_seeded_deviation_rate": 0.2906,
+   "mean_seeded_correct_steps": 19.81,
+   "mean_auto_clean_frac": 0.6113,
+   "mean_auto_gt_recall": 0.3706,
+   "total_gt_runs": 143
+  }
+ },
+ "note": "Held-out = L3_20_4_8, L3_22_9_8, L3_24_7_5 (dev L3_23_5_8 excluded from these means). Aug-01 fiber preds only; zero new downloads. Sep-15 comparison remains 1-crop only."
+}

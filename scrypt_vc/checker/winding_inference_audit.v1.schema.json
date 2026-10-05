@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "winding_inference_audit.v1",
+  "description": "Scrypt audit report for a winding_inference/ directory. Human relative_windings enable single-ray and chain-offset candidate flags. CONFIRMED seed errors require a separate 3D same-sheet geometric test \u2014 this schema does not claim confirmation without human labels.",
+  "type": "object",
+  "required": [
+    "version",
+    "inputs",
+    "population"
+  ],
+  "properties": {
+    "version": {
+      "const": "winding_inference_audit.v1"
+    },
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "winding_inference_dir": {
+          "type": "string"
+        },
+        "relative_windings_json": {
+          "type": "string"
+        },
+        "DR": {
+          "type": "number"
+        },
+        "scroll": {
+          "type": "string"
+        }
+      }
+    },
+    "single_ray": {
+      "type": "object",
+      "description": "Per-ray relative count vs human (seed-free)"
+    },
+    "chain_offsets": {
+      "type": "object",
+      "description": "Seed-consistency candidates anchored on human chains"
+    },
+    "population": {
+      "type": "object",
+      "description": "Seed/crossing stats always; multi-ray rates only with human chains (triage, not confirmation)."
+    },
+    "confirmed_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "ray",
+          "z",
+          "verdict",
+          "red_vs_human"
+        ]
+      },
+      "description": "Optional previously verified cases (from geometric 3D test). Empty unless a catalog is attached."
+    },
+    "notes": {
+      "type": "string"
+    },
+    "candidates": {
+      "type": "array",
+      "description": "Strong chain-offset candidates (NOT confirmed). Each needs 3D same-sheet verification."
+    }
+  }
+}

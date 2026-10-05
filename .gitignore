@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+data/
+*.pkl
+*.npz
+!checker_cases/*.npz
+.ipynb_checkpoints/

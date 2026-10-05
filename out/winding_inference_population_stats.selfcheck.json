@@ -1,0 +1,32 @@
+{
+ "n_rays": 1147551,
+ "n_crossings": 22706484,
+ "seed_range": [
+  10.0,
+  127.0
+ ],
+ "seeds_all_integer": true,
+ "seed_frac_median": 0.0,
+ "crossings_per_ray": {
+  "median": 19,
+  "p10": 11,
+  "p90": 29,
+  "max": 41
+ },
+ "multi_ray_human_points": {
+  "DR": 6.0,
+  "n_points_with_ge2_rays": 104,
+  "agree_rounded": 52,
+  "disagree_rounded": 52,
+  "disagree_rate": 0.5,
+  "span_hist": {
+   "1": 37,
+   "2": 10,
+   "3": 2,
+   "8": 1,
+   "9": 1,
+   "10": 1
+  },
+  "note": "Triage rate only at human chain points. Confirmation requires chain consensus + 3D same-sheet geometric test. Not a confirmed-error rate."
+ }
+}

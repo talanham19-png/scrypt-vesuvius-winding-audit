@@ -1,0 +1,14 @@
+{
+  "finding": "fibers_vs_PCL_coordinate_scale",
+  "fit_PCL_space": "PHercParis4 masked CT level 2 = 9.6 \u00b5m voxels (PCL p in [x,y,z] here)",
+  "eval_fibers_space": "base 2.4 \u00b5m voxels (L0); z up to ~75k",
+  "scale_factor": 0.25,
+  "evidence": [
+    "villa/spiral-fitting/spiral_helpers.py::load_fiber_point_collection default coordinate_scale=0.25",
+    "Auto-inferred as dyadic scale between fiber source_shape and dataset base_shape when shapes provided",
+    "99/645 eval_fibers carry vc_open_data_source_coordinate_scale_factor=1 at L0 (2.4 \u00b5m); remaining lack metadata but same numeric range",
+    "PCL max xyz ~[6602,6625,17252]; PCL*4 matches base-scale fiber ranges",
+    "scrypt export_vc3d.py writes line_points in base voxels (L3*8); fitter then *0.25 \u2192 PCL/fit space"
+  ],
+  "implication": "Feed auto fibers to fit_spiral as base-voxel vc3d_fiber JSON (like eval_fibers). Do NOT pre-scale to PCL. Fitter applies 0.25."
+}

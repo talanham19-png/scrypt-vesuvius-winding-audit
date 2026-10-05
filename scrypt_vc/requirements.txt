@@ -1,0 +1,14 @@
+# CPU prototype (Python 3.14, matches villa's requires-python). Install: uv venv --python 3.14 && uv pip install -r requirements.txt
+numpy>=2.0
+scipy>=1.13
+scikit-image>=0.24
+scikit-learn>=1.5
+numcodecs>=0.15.1,<0.17
+zarr>=2.18.7,<4
+requests>=2.32
+tifffile
+imagecodecs
+matplotlib
+# villa 'vesuvius' lib (volume-only extra) installed editable from ../villa/vesuvius:
+#   uv pip install -e "../villa/vesuvius[volume-only]"
+# GPU (optional, later; RTX 2070 8 GB / sm_75): torch CUDA 12.x wheel, fp16 autocast + GradScaler only (no bf16, no FA2).

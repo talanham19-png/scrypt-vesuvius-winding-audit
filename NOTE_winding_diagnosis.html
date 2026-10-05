@@ -1,0 +1,387 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'>
+<style>
+body{font-family:sans-serif;font-size:10.5pt;max-width:780px;margin:24px auto;padding:0 12px;color:#111}
+img{max-width:100%;page-break-inside:avoid}
+table{border-collapse:collapse;font-size:8.5pt;width:100%;margin:8px 0}
+td,th{border:1px solid #999;padding:3px 4px;text-align:left}
+h1,h2,h3{page-break-after:avoid}
+code{font-size:9pt}
+</style></head><body><h1>Where the errors in the published neural winding output come from (PHercParis4)</h1>
+<p>Scrypt, technical note, Oct 5, 2026 (population-stats addendum included).</p>
+<h2>Lead findings</h2>
+<ol>
+<li>
+<p><strong>The team's published neural winding output counts sheet crossings correctly along a single ray, but its absolute winding numbers are locally wrong.</strong> Comparing it with human relative-winding chains on PHercParis4: <strong>93 of 94</strong> ray-pairs agree with the human winding difference. The disagreements we could confirm all come from the <strong>starting (seed) winding number assigned to each ray</strong>. Two rays crossing the same sheet can differ by ±1 or ±2. In one case a ray's level order runs opposite to the sheet order.</p>
+</li>
+<li>
+<p><strong>Our automatic relative-winding chains did not improve a spiral fit.</strong> On a reduced local fit of 400 slices (z 10900–11300), held-out human adjacent-pair accuracy was <strong>84.1%</strong> with no relative-winding constraints and <strong>78.9%</strong> when the fit was given only our auto chains (means over 3 seeds). Auto chains hurt on every seed and every metric we measured. We are <strong>not</strong> pitching them as an improvement.</p>
+</li>
+</ol>
+<p><strong>Circularity caveat (applies to finding 1).</strong> The per-ray starting numbers come from a spiral fit that already used these same human relative-winding labels. So finding 1 is not an independent test of the neural model. What it shows is that the fitted seeds are locally inconsistent with the labels the fit was given, while the crossing detector itself agrees with the humans.</p>
+<p><strong>Circularity caveat (applies to finding 2).</strong> Both fit arms used the team's published neural winding output as supervision. That output itself came from a fit that used human labels. So finding 2 is a comparison of "neural winding + shell + same-winding PCLs" against the same plus our auto chains, not a test of the neural winding in isolation.</p>
+<hr />
+<h2>Part A. Diagnosis of the published neural winding output</h2>
+<h3>Data</h3>
+<ul>
+<li><strong>Neural output:</strong> <code>spiral_datasets/PHercParis4/winding_inference/</code> (1.15M rays, 22.7M crossings). Absolute winding of a crossing = <code>seed_winding[ray] + crossing_level</code>. Coordinates are the fit space (masked 2.4 µm scan, level 2, 9.6 µm voxels).</li>
+<li><strong>Human labels:</strong> <code>relative_windings.json</code> (300 chains, 2,173 points). In a chain, the difference in <code>wind_a</code> between two points equals their winding difference; consecutive points step +1.</li>
+<li><strong>Visual reference:</strong> the m7 surface prediction at level 0 (same grid).</li>
+</ul>
+<h3>Methods</h3>
+<ol>
+<li><strong>Per-ray relative counts.</strong> If one ray passes within 4 voxels of two points of the same human chain, the neural winding difference is read off that ray alone (interpolated level at each point's projection; no seed involved). Compare with the human difference. (<code>checker/single_ray.py</code>)</li>
+<li><strong>Seed consistency anchored on human chains.</strong> For every chain point and every ray within DR voxels (primary DR=6; widened to DR=8), compute u = neural w − <code>wind_a</code>. If the neural output agreed with the chain, u would be one constant per chain. A ray whose rounded u differs from the chain's consensus (≥3 rays at ≥2 points) is a candidate seed error. Candidates are kept only where another ray at the same human point agrees with the consensus. (<code>checker/chain_offsets.py</code>)</li>
+<li><strong>Verification of each candidate:</strong></li>
+<li>Figure: 5-slice max projection of m7; yellow = human points labelled with consensus winding; red = offending ray; cyan = other rays.</li>
+<li>Geometric test: in a 17×96×96 m7 box, label 26-connected sheet components. On components that contain exactly one human label, compare every red and cyan crossing's winding with the human label.</li>
+<li><strong>Confirmed:</strong> red differs from the human label by ≥1 on the same sheet, and all other rays agree with it.</li>
+<li><strong>Probable:</strong> red differs, but another ray also disagrees.</li>
+<li><strong>Ambiguous:</strong> neighbourhood inconsistent or sheets merged.</li>
+</ol>
+<h3>Numbers</h3>
+<ul>
+<li><strong>Per-ray counts:</strong> 94 ray-pairs; 93 agree; 1 disagrees (ray 134617 = case 02 below).</li>
+<li><strong>Chain anchoring (DR=6):</strong> 48 chains had enough rays; 238 rays scored; 30 off consensus by ≥0.75 winding; 10 of those also have another ray at the same point that agrees with the consensus → <strong>5 confirmed, 2 probable, 3 ambiguous</strong>.</li>
+<li><strong>Widened search (DR=8) on the same already-downloaded <code>winding_inference</code> + human chains:</strong> 37 strong candidates; 21 new after excluding the DR=6 ten. Same 3D same-sheet confirmation standard (tiny m7 crops only; no large downloads). Of the 21: <strong>10 confirmed, 6 probable, 5 ambiguous</strong>.</li>
+<li><strong>Totals (honest union):</strong> <strong>15 confirmed</strong>, 8 probable, 8 ambiguous. Probable/ambiguous stay separate from confirmed.</li>
+</ul>
+<h4>Confirmed (DR=6 primary set)</h4>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Chain</th>
+<th>Ray</th>
+<th>z</th>
+<th>Red − human (windings)</th>
+<th>Other rays − human</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>col172</td>
+<td>186900</td>
+<td>8879</td>
+<td>−1, −1</td>
+<td>0, 0, 0</td>
+<td>confirmed</td>
+</tr>
+<tr>
+<td>02</td>
+<td>wraps2</td>
+<td>134617</td>
+<td>16920</td>
+<td>+4 … +18 (level order runs opposite to sheet order)</td>
+<td>0 (×12)</td>
+<td>confirmed</td>
+</tr>
+<tr>
+<td>03</td>
+<td>col22</td>
+<td>391270</td>
+<td>15080</td>
+<td>−1, −1, −1</td>
+<td>0 (×4)</td>
+<td>confirmed (crossings 4–6 slices off-plane)</td>
+</tr>
+<tr>
+<td>07</td>
+<td>col58</td>
+<td>187628</td>
+<td>9185</td>
+<td>−1</td>
+<td>0, 0, 0</td>
+<td>confirmed</td>
+</tr>
+<tr>
+<td>08</td>
+<td>col63</td>
+<td>272472</td>
+<td>9407</td>
+<td>+1, +1</td>
+<td>0, 0, 0</td>
+<td>confirmed</td>
+</tr>
+</tbody>
+</table>
+<h4>Confirmed (DR=8 expansion, Oct 5)</h4>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Chain</th>
+<th>Ray</th>
+<th>z</th>
+<th>Red − human (windings)</th>
+<th>Other rays − human</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>col147</td>
+<td>7036</td>
+<td>8980</td>
+<td>-1 (×6)</td>
+<td>0 (×6)</td>
+<td>confirmed (DR=8)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>col22</td>
+<td>356196</td>
+<td>15092</td>
+<td>-1, -1, -1</td>
+<td>0</td>
+<td>confirmed (DR=8)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>col289</td>
+<td>8031</td>
+<td>10195</td>
+<td>-1</td>
+<td>0, 0</td>
+<td>confirmed (DR=8)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>col68</td>
+<td>474925</td>
+<td>7674</td>
+<td>1</td>
+<td>0, 0, 0</td>
+<td>confirmed (DR=8)</td>
+</tr>
+<tr>
+<td>14</td>
+<td>col70</td>
+<td>214071</td>
+<td>9185</td>
+<td>-1, -1</td>
+<td>0, 0, 0, 0</td>
+<td>confirmed (DR=8)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>col126</td>
+<td>144441</td>
+<td>11228</td>
+<td>-1, -1, -1, -1</td>
+<td>0 (×5)</td>
+<td>confirmed (DR=8)</td>
+</tr>
+<tr>
+<td>22</td>
+<td>col67</td>
+<td>482054</td>
+<td>9357</td>
+<td>1</td>
+<td>0, 0</td>
+<td>confirmed (DR=8)</td>
+</tr>
+<tr>
+<td>23</td>
+<td>col67</td>
+<td>737710</td>
+<td>9376</td>
+<td>1</td>
+<td>0</td>
+<td>confirmed (DR=8)</td>
+</tr>
+<tr>
+<td>27</td>
+<td>col43</td>
+<td>68143</td>
+<td>11714</td>
+<td>-1</td>
+<td>0, 0</td>
+<td>confirmed (DR=8)</td>
+</tr>
+<tr>
+<td>29</td>
+<td>col89</td>
+<td>440658</td>
+<td>8750</td>
+<td>-1, -1</td>
+<td>0, 0</td>
+<td>confirmed (DR=8)</td>
+</tr>
+</tbody>
+</table>
+<h4>Probable / ambiguous (kept separate)</h4>
+<ul>
+<li><strong>DR=6 probable:</strong> case 00 (col115), case 06 (col270). <strong>DR=6 ambiguous:</strong> cases 04, 05, 09.</li>
+<li><strong>DR=8 probable (6):</strong> 16/col17, 17/col63, 20/col160, 24/col166, 25/col221, 26/col118.</li>
+<li><strong>DR=8 ambiguous (5):</strong> 15/col147, 19/col173, 21/col67, 28/col60, 30/col89.</li>
+</ul>
+<h3>Can the checker work without human labels?</h3>
+<p>We tested a label-free rule: each ray is compared with neighbouring rays near shared crossings and flagged if most neighbours disagree. Parameters were fixed by a label-free coverage rule (neighbour radius 6 px, window 100 px; a second setting at 12 px was also run), then scored afterwards against a strict human-anchored reference (171 rays, 29 off; fractional offsets 0.25–0.75 excluded).</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Coverage</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>Base rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6 px</td>
+<td>48.5%</td>
+<td>42.9%</td>
+<td>63.2%</td>
+<td>22.9%</td>
+</tr>
+<tr>
+<td>12 px</td>
+<td>81%</td>
+<td>47.2%</td>
+<td>65.4%</td>
+<td>18.7%</td>
+</tr>
+</tbody>
+</table>
+<p>Better than chance (about 2–2.5× the base rate), but more than half of its flags are false and about a third of errors are missed. It catches 3 of the original 5 confirmed cases (not re-scored on the DR=8 expansion). <strong>Dropped as a standalone tool</strong>; usable only for triage with human-chain confirmation.</p>
+<h3>Limitations (Part A)</h3>
+<ul>
+<li>Circularity of the seeds (see lead findings).</li>
+<li>Human chains are taken as correct. In every confirmed case the chain visibly steps one sheet per point, but there was no independent audit.</li>
+<li>Sparse sample: neural crossings lie on m7 sheets only loosely (median distance 2 px; only 28% of crossings lie exactly on the mask). Fifteen confirmed cases from a few hundred scored rays is still not an error-rate estimate for the 1.15M rays.</li>
+<li>Figures are max projections over 5 slices; some red crossings are up to 6 slices off-plane (case 03). The 3D component test addresses this but relies on the m7 prediction's topology.</li>
+<li>Scope: PHercParis4 only.</li>
+</ul>
+<hr />
+<h2>Part B. Negative result: automatic relative-winding chains in a spiral fit</h2>
+<h3>What we tried</h3>
+<p>A CPU method (<code>scrypt_vc/winding/</code>) builds relative-winding chains from 2D slices of the m7 surface prediction: skeletonize, cut radially, sync chunk windings with cycle checks, export chains of consecutive +1 steps at confidence ≥0.99.</p>
+<p>On 7 held-out slices (labels disjoint from the one tuning slice; threshold 0.98 fixed on the tuning slice only), adjacent human pairs agreed at <strong>95.3%</strong> with 83.3% coverage (424/509). Without skipping: 91.7% at 94.7% coverage. A leave-one-slice-out hybrid of our method for nearby pairs and a straight-line sheet-count baseline for far pairs did <strong>not</strong> beat the baseline overall (77.0% vs 77.2%). Our method only helps below about 50 px.</p>
+<p><strong>Wrong-chain fraction among the export filter (zero-cost, from existing scores).</strong> The fit used chains exported at confidence ≥0.99 (the export rule fixed before the fit, not re-tuned on held-out labels). On held-out adjacent human pairs that our graph also scored at that same filter, agreement was 97.1% (12 of 408 wrong). That characterises the filter, not the fit range itself: the auto chains fed to the fit came from z 10950–11250, and we have no human-pair agreement numbers on those four slices.</p>
+<h3>The fit test (Atrium, RTX 2070, Oct 4–5 2026)</h3>
+<p><strong>Reduced setup (honest limitations, not a full team fit):</strong>
+- No verified patches, normals, tracks or fibers (the fitter's native C++ extension needs a compiler Atrium does not have; Build Tools were not installed). Without patches, relative chains enter only as unattached-strip losses.
+- 400 slices (z 10900–11300); 2,000 optimiser steps (default is 30,000).
+- Coarser flow grid: <code>model_flow_voxel_resolution</code> 20 instead of 16, so checkpoints fit the 3 GB folder budget (269 MB each instead of 511 MB).
+- Both arms used the team's neural winding output (subset to this z-range), the outer shell, the umbilicus and human same-winding PCLs. Spiral sense set to CW from our method's σ=+1 and VC3D's chirality rule (catalog metadata was not used).
+- Arm 0: no relative-winding constraints. Arm 1: only our auto chains (4,682 chains / 25.8k points from z 10950, 11050, 11150, 11250). <strong>No human relative chains were present on Atrium.</strong>
+- Scoring: 28 human relative chains / 137 points / 109 consecutive pairs with every point in range; never given to either fit. Thresholds match the official <code>satisfaction_metrics</code> (0.45·dr spiral, 6 voxels scan). Three seeds per arm, seed count fixed before seeing results. The fitter's own final scoring step crashes without the native extension; we scored from the saved checkpoint with our evaluator after that crash.</p>
+<table>
+<thead>
+<tr>
+<th>Arm</th>
+<th>Adjacent pairs (seeds 1/2/3 → mean)</th>
+<th>All within-chain pairs (mean)</th>
+<th>Points satisfied (mean)</th>
+<th>Chains fully satisfied (seeds)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0: no relative constraints</td>
+<td>85.3 / 85.3 / 81.7 → <strong>84.1%</strong></td>
+<td>55.9%</td>
+<td>44.5%</td>
+<td>4 / 4 / 5 of 28</td>
+</tr>
+<tr>
+<td>1: only our auto chains</td>
+<td>78.9 / 78.0 / 79.8 → <strong>78.9%</strong></td>
+<td>51.0%</td>
+<td>40.4%</td>
+<td>1 / 3 / 3 of 28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result: auto chains hurt by −5.2 points on adjacent pairs.</strong> Lower on every seed and every metric.</p>
+<h3>Why might they have hurt? (untested hypotheses only)</h3>
+<p>We did not test these. They are listed so the result is not over-interpreted:
+1. Roughly 3% of exported adjacent steps disagree with humans on other held-out slices; wrong chains would conflict with the neural winding supervision.
+2. 4,682 chains packed into only 4 slices may over-weight those planes.
+3. Without patches, relative chains are only unattached-strip losses, which may interact poorly with the winding-model term.</p>
+<h3>Limitations (Part B)</h3>
+<p>Everything in the reduced-setup list above. Also: the test set is small (28 chains) and clustered at two depths (z ≈ 11044 and 11227). Peak folder size briefly hit 3.066 GB for a few minutes during a smoke run (0.07 GB over the 3 GB budget) before the smoke checkpoint was deleted; subsequent runs peaked at 2.83 GB and finished at 2.567 GB. No out-of-memory. No publish.</p>
+<hr />
+<h2>Figures (Part A cases)</h2>
+<p>Red = offending ray; cyan = other rays; yellow = human chain points, labelled <code>wind_a</code> + consensus offset. Background is the m7 surface prediction.</p>
+<h3>Confirmed</h3>
+<p><img alt="case01" src="checker_cases/case01_col172_ray186900_z8879.png" />
+<img alt="case02" src="checker_cases/case02_wraps2_ray134617_z16920.png" />
+<img alt="case03" src="checker_cases/case03_col22_ray391270_z15080.png" />
+<img alt="case07" src="checker_cases/case07_col58_ray187628_z9185.png" />
+<img alt="case08" src="checker_cases/case08_col63_ray272472_z9407.png" /></p>
+<p>Additional confirmed (DR=8 sample; full set in <code>checker_cases/</code>):
+<img alt="case10" src="checker_cases/case10_col147_ray7036_z8980.png" />
+<img alt="case11" src="checker_cases/case11_col22_ray356196_z15092.png" />
+<img alt="case14" src="checker_cases/case14_col70_ray214071_z9185.png" />
+<img alt="case29" src="checker_cases/case29_col89_ray440658_z8750.png" /></p>
+<p>Case 02 animation (level order opposite sheet order): <code>checker_cases/case02_wrong_direction.gif</code> (~30 s).</p>
+<h3>Probable</h3>
+<p><img alt="case00" src="checker_cases/case00_col115_ray3136_z12862.png" />
+<img alt="case06" src="checker_cases/case06_col270_ray223229_z12529.png" /></p>
+<h3>Ambiguous</h3>
+<p><img alt="case04" src="checker_cases/case04_col262_ray194672_z11825.png" />
+<img alt="case05" src="checker_cases/case05_col262_ray169422_z11825.png" />
+<img alt="case09" src="checker_cases/case09_col88_ray734549_z8750.png" /></p>
+<hr />
+<h2>Reproduce</h2>
+<ul>
+<li>Diagnosis: <code>python -m checker</code> (or <code>scrypt_vc/run_checker.sh</code>). Scripts: <code>ray_field.py</code>, <code>single_ray.py</code>, <code>chain_offsets.py</code>, <code>case_figures.py</code>, <code>verify_cc.py</code>, <code>labelfree.py</code>. CPU; ~170 MB of <code>winding_inference</code> plus small m7 crops. DR=8 expansion JSON: <code>out/checker_chain_offsets_dr8.json</code>; 3D verify of new candidates: <code>checker_cases/geometric_check_dr8_new.json</code>.</li>
+<li>Auto chains and rescoring: <code>scrypt_vc/winding/</code>.</li>
+<li>Fit + held-out eval: <code>atrium/</code> (<code>run_fit.py</code>, <code>eval_heldout.py</code>, install notes). RTX 2070 8 GB; results in STATUS.md.</li>
+</ul>
+<p>Licensing: code under MIT (Scrypt). Figures and derived data come from CC-BY-NC 4.0 scan data and stay within the prize submission; nothing built from that data goes into any Scrypt product.</p>
+<hr />
+<h2>Addendum (Oct 5 afternoon): population stats and packaging</h2>
+<p>Zero-cost analysis on the same already-downloaded <code>winding_inference</code> + human chains. No new downloads, no GPU.</p>
+<h3>Seed vs crossing (clarified)</h3>
+<ul>
+<li><strong>Per-ray relative counts</strong> (seed-free): <strong>93/94</strong> ray-pairs still agree with humans. The one failure is case 02 (ray 134617), where crossing <em>level order</em> runs opposite the sheet.</li>
+<li><strong>All 1.15M <code>seed_winding</code> values are exact integers</strong> (median |frac| = 0). Errors are integer seed offsets (or the one reversed-level case), not fractional drift.</li>
+<li>Median crossings per ray: 19 (p10=11, p90=29).</li>
+</ul>
+<h3>Population triage rate (not a confirmed-error rate)</h3>
+<p>At human relative-chain points with ≥2 neural rays within 6 voxels (<strong>n=104</strong>):
+- Rounded windings <strong>agree on 52 (50%)</strong> and <strong>disagree on 52 (50%)</strong>.
+- Of disagreements, most have span 1 winding (37); span ≥2 is rarer (15).
+- <strong>This is a triage signal only.</strong> Confirmation still requires a chain consensus mode plus the 3D same-sheet geometric test. Many disagreements are ambiguous neighbourhoods (see probable/ambiguous cases).</p>
+<h3>Confirmed-case taxonomy (geometric median of red−human)</h3>
+<p>Across all <strong>15 confirmed</strong> cases (13 distinct human chains; z 7674–16920):</p>
+<table>
+<thead>
+<tr>
+<th>Error type</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>seed offset −1</td>
+<td>10</td>
+</tr>
+<tr>
+<td>seed offset +1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>level order reversed</td>
+<td>1 (case 02)</td>
+</tr>
+<tr>
+<td>(chain-only ±2 overshoots)</td>
+<td>0 confirmed at ±2 geometrically; cases 12/13/23 had chain_off ±2 but geo median ±1</td>
+</tr>
+</tbody>
+</table>
+<p>So almost all confirmed seed errors are <strong>±1</strong>. Chain-offset candidates can overshoot the geometric offset by 1 when few red hits land on uniquely labelled sheets — the geometric test is authoritative.</p>
+<h3>Packaging for reuse</h3>
+<ul>
+<li>Full case table: <code>checker_cases/case_catalog.json</code> and <code>.csv</code> (DR=6 + DR=8; verdicts kept separate).</li>
+<li>Population stats: <code>out/winding_inference_population_stats.json</code>.</li>
+<li>Draft eval-suite schema + filled report: <code>scrypt_vc/checker/winding_inference_audit.v1.schema.json</code>, <code>out/winding_inference_audit.v1.json</code>.</li>
+<li>Case 02 animation: <code>checker_cases/case02_wrong_direction.gif</code> (~30 s).</li>
+</ul></body></html>

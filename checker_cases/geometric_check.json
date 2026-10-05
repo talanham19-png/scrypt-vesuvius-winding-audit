@@ -1,0 +1,196 @@
+[
+ {
+  "case": 0,
+  "name": "col115",
+  "ray": 3136,
+  "z": 12862,
+  "red_vs_human": [
+   -2.0,
+   -2.0
+  ],
+  "other_rays_vs_human": [
+   0.0,
+   -1.0
+  ],
+  "merged_components_with_multiple_human_labels": 0,
+  "geometric_confirm": false
+ },
+ {
+  "case": 1,
+  "name": "col172",
+  "ray": 186900,
+  "z": 8879,
+  "red_vs_human": [
+   -1.0,
+   -1.0
+  ],
+  "other_rays_vs_human": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "merged_components_with_multiple_human_labels": 0,
+  "geometric_confirm": true
+ },
+ {
+  "case": 2,
+  "name": "wraps2",
+  "ray": 134617,
+  "z": 16920,
+  "red_vs_human": [
+   4.0,
+   6.0,
+   8.0,
+   10.0,
+   12.0,
+   14.0,
+   16.0,
+   18.0
+  ],
+  "other_rays_vs_human": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "merged_components_with_multiple_human_labels": 0,
+  "geometric_confirm": true
+ },
+ {
+  "case": 3,
+  "name": "col22",
+  "ray": 391270,
+  "z": 15080,
+  "red_vs_human": [
+   -1.0,
+   -1.0,
+   -1.0
+  ],
+  "other_rays_vs_human": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "merged_components_with_multiple_human_labels": 0,
+  "geometric_confirm": true
+ },
+ {
+  "case": 4,
+  "name": "col262",
+  "ray": 194672,
+  "z": 11825,
+  "red_vs_human": [
+   1.0,
+   1.0,
+   2.0
+  ],
+  "other_rays_vs_human": [
+   -1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   2.0
+  ],
+  "merged_components_with_multiple_human_labels": 0,
+  "geometric_confirm": false
+ },
+ {
+  "case": 5,
+  "name": "col262",
+  "ray": 169422,
+  "z": 11825,
+  "red_vs_human": [
+   1.0,
+   1.0,
+   2.0,
+   3.0,
+   3.0
+  ],
+  "other_rays_vs_human": [
+   1.0,
+   1.0,
+   2.0,
+   2.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "merged_components_with_multiple_human_labels": 0,
+  "geometric_confirm": false
+ },
+ {
+  "case": 6,
+  "name": "col270",
+  "ray": 223229,
+  "z": 12529,
+  "red_vs_human": [
+   -1.0
+  ],
+  "other_rays_vs_human": [
+   0.0,
+   1.0
+  ],
+  "merged_components_with_multiple_human_labels": 0,
+  "geometric_confirm": false
+ },
+ {
+  "case": 7,
+  "name": "col58",
+  "ray": 187628,
+  "z": 9185,
+  "red_vs_human": [
+   -1.0
+  ],
+  "other_rays_vs_human": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "merged_components_with_multiple_human_labels": 0,
+  "geometric_confirm": true
+ },
+ {
+  "case": 8,
+  "name": "col63",
+  "ray": 272472,
+  "z": 9407,
+  "red_vs_human": [
+   1.0,
+   1.0
+  ],
+  "other_rays_vs_human": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "merged_components_with_multiple_human_labels": 0,
+  "geometric_confirm": true
+ },
+ {
+  "case": 9,
+  "name": "col88",
+  "ray": 734549,
+  "z": 8750,
+  "red_vs_human": [
+   1.0
+  ],
+  "other_rays_vs_human": [
+   0.0,
+   0.0
+  ],
+  "merged_components_with_multiple_human_labels": 1,
+  "geometric_confirm": true
+ }
+]

@@ -1,0 +1,504 @@
+{
+ "version": "winding_inference_audit.v1",
+ "inputs": {
+  "winding_inference_dir": "/workspace/vesuvius/data/spiral/winding_inference",
+  "relative_windings_json": "/workspace/vesuvius/data/spiral/relative_windings.json",
+  "DR": 6.0,
+  "single_ray_DR": 4.0,
+  "scroll": "PHercParis4"
+ },
+ "population": {
+  "n_rays": 1147551,
+  "n_crossings": 22706484,
+  "seed_range": [
+   10.0,
+   127.0
+  ],
+  "seeds_all_integer": true,
+  "seed_frac_median": 0.0,
+  "crossings_per_ray": {
+   "median": 19,
+   "p10": 11,
+   "p90": 29,
+   "max": 41
+  },
+  "multi_ray_human_points": {
+   "DR": 6.0,
+   "n_points_with_ge2_rays": 104,
+   "agree_rounded": 52,
+   "disagree_rounded": 52,
+   "disagree_rate": 0.5,
+   "span_hist": {
+    "1": 37,
+    "2": 10,
+    "3": 2,
+    "8": 1,
+    "9": 1,
+    "10": 1
+   },
+   "note": "Triage rate only at human chain points. Confirmation requires chain consensus + 3D same-sheet geometric test. Not a confirmed-error rate."
+  }
+ },
+ "single_ray": {
+  "DR": 4.0,
+  "stats": {
+   "ray_pairs": 94,
+   "ray_pairs_bad": 1
+  },
+  "n_disagreement_cases": 1
+ },
+ "chain_offsets": {
+  "DR": 6.0,
+  "stats": {
+   "chains_with_obs": 174,
+   "obs": 661,
+   "obs_at_mode": 496,
+   "chains_scored": 48,
+   "rays_scored": 238,
+   "rays_off": 30
+  },
+  "n_off": 30,
+  "n_strong_candidates": 10
+ },
+ "candidates": [
+  {
+   "name": "col115",
+   "ray": 3136,
+   "z": 12862,
+   "ray_offset_windings": -2,
+   "mode_support_rays": 9,
+   "other_agree": "1/1",
+   "verdict": "candidate_needs_3d_confirm"
+  },
+  {
+   "name": "col172",
+   "ray": 186900,
+   "z": 8879,
+   "ray_offset_windings": -1,
+   "mode_support_rays": 6,
+   "other_agree": "1/1",
+   "verdict": "candidate_needs_3d_confirm"
+  },
+  {
+   "name": "wraps2",
+   "ray": 134617,
+   "z": 16920,
+   "ray_offset_windings": 12,
+   "mode_support_rays": 4,
+   "other_agree": "4/4",
+   "verdict": "candidate_needs_3d_confirm"
+  },
+  {
+   "name": "col22",
+   "ray": 391270,
+   "z": 15080,
+   "ray_offset_windings": -1,
+   "mode_support_rays": 4,
+   "other_agree": "2/2",
+   "verdict": "candidate_needs_3d_confirm"
+  },
+  {
+   "name": "col262",
+   "ray": 194672,
+   "z": 11825,
+   "ray_offset_windings": 1,
+   "mode_support_rays": 3,
+   "other_agree": "1/2",
+   "verdict": "candidate_needs_3d_confirm"
+  },
+  {
+   "name": "col262",
+   "ray": 169422,
+   "z": 11825,
+   "ray_offset_windings": 2,
+   "mode_support_rays": 3,
+   "other_agree": "1/2",
+   "verdict": "candidate_needs_3d_confirm"
+  },
+  {
+   "name": "col270",
+   "ray": 223229,
+   "z": 12529,
+   "ray_offset_windings": -1,
+   "mode_support_rays": 3,
+   "other_agree": "1/1",
+   "verdict": "candidate_needs_3d_confirm"
+  },
+  {
+   "name": "col58",
+   "ray": 187628,
+   "z": 9185,
+   "ray_offset_windings": -1,
+   "mode_support_rays": 5,
+   "other_agree": "1/1",
+   "verdict": "candidate_needs_3d_confirm"
+  },
+  {
+   "name": "col63",
+   "ray": 272472,
+   "z": 9407,
+   "ray_offset_windings": 1,
+   "mode_support_rays": 4,
+   "other_agree": "1/1",
+   "verdict": "candidate_needs_3d_confirm"
+  },
+  {
+   "name": "col88",
+   "ray": 734549,
+   "z": 8750,
+   "ray_offset_windings": 1,
+   "mode_support_rays": 3,
+   "other_agree": "3/6",
+   "verdict": "candidate_needs_3d_confirm"
+  }
+ ],
+ "confirmed_cases": [
+  {
+   "case": "01",
+   "name": "col172",
+   "ray": 186900,
+   "z": 8879,
+   "search": "DR6",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0,
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "figure": "case01_col172_ray186900_z8879.png"
+  },
+  {
+   "case": "02",
+   "name": "wraps2",
+   "ray": 134617,
+   "z": 16920,
+   "search": "DR6",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    12.0,
+    14.0,
+    16.0,
+    18.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "figure": "case02_wraps2_ray134617_z16920.png"
+  },
+  {
+   "case": "03",
+   "name": "col22",
+   "ray": 391270,
+   "z": 15080,
+   "search": "DR6",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0,
+    -1.0,
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "figure": "case03_col22_ray391270_z15080.png"
+  },
+  {
+   "case": "07",
+   "name": "col58",
+   "ray": 187628,
+   "z": 9185,
+   "search": "DR6",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "figure": "case07_col58_ray187628_z9185.png"
+  },
+  {
+   "case": "08",
+   "name": "col63",
+   "ray": 272472,
+   "z": 9407,
+   "search": "DR6",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    1.0,
+    1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "figure": "case08_col63_ray272472_z9407.png"
+  },
+  {
+   "case": "10",
+   "name": "col147",
+   "ray": 7036,
+   "z": 8980,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": -1,
+   "figure": "case10_col147_ray7036_z8980.png",
+   "tag": "case10_col147_ray7036_z8980",
+   "geo_median_offset": -1.0
+  },
+  {
+   "case": "11",
+   "name": "col22",
+   "ray": 356196,
+   "z": 15092,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0,
+    -1.0,
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": -1,
+   "figure": "case11_col22_ray356196_z15092.png",
+   "tag": "case11_col22_ray356196_z15092",
+   "geo_median_offset": -1.0
+  },
+  {
+   "case": "12",
+   "name": "col289",
+   "ray": 8031,
+   "z": 10195,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": -2,
+   "figure": "case12_col289_ray8031_z10195.png",
+   "tag": "case12_col289_ray8031_z10195",
+   "geo_median_offset": -1.0
+  },
+  {
+   "case": "13",
+   "name": "col68",
+   "ray": 474925,
+   "z": 7674,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": 2,
+   "figure": "case13_col68_ray474925_z7674.png",
+   "tag": "case13_col68_ray474925_z7674",
+   "geo_median_offset": 1.0
+  },
+  {
+   "case": "14",
+   "name": "col70",
+   "ray": 214071,
+   "z": 9185,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0,
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": -1,
+   "figure": "case14_col70_ray214071_z9185.png",
+   "tag": "case14_col70_ray214071_z9185",
+   "geo_median_offset": -1.0
+  },
+  {
+   "case": "18",
+   "name": "col126",
+   "ray": 144441,
+   "z": 11228,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": -1,
+   "figure": "case18_col126_ray144441_z11228.png",
+   "tag": "case18_col126_ray144441_z11228",
+   "geo_median_offset": -1.0
+  },
+  {
+   "case": "22",
+   "name": "col67",
+   "ray": 482054,
+   "z": 9357,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": 1,
+   "figure": "case22_col67_ray482054_z9357.png",
+   "tag": "case22_col67_ray482054_z9357",
+   "geo_median_offset": 1.0
+  },
+  {
+   "case": "23",
+   "name": "col67",
+   "ray": 737710,
+   "z": 9376,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    1.0
+   ],
+   "other_vs_human": [
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": 2,
+   "figure": "case23_col67_ray737710_z9376.png",
+   "tag": "case23_col67_ray737710_z9376",
+   "geo_median_offset": 1.0
+  },
+  {
+   "case": "27",
+   "name": "col43",
+   "ray": 68143,
+   "z": 11714,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": -1,
+   "figure": "case27_col43_ray68143_z11714.png",
+   "tag": "case27_col43_ray68143_z11714",
+   "geo_median_offset": -1.0
+  },
+  {
+   "case": "29",
+   "name": "col89",
+   "ray": 440658,
+   "z": 8750,
+   "search": "DR8",
+   "verdict": "CONFIRMED",
+   "red_vs_human": [
+    -1.0,
+    -1.0
+   ],
+   "other_vs_human": [
+    0.0,
+    0.0
+   ],
+   "geometric_confirm": true,
+   "merged": 0,
+   "ray_offset_windings": -1,
+   "figure": "case29_col89_ray440658_z8750.png",
+   "tag": "case29_col89_ray440658_z8750",
+   "geo_median_offset": -1.0
+  }
+ ],
+ "notes": "Human labels are required for single-ray / chain-offset / confirmation. Population multi-ray disagreement without a 3D same-sheet test is triage only. This suite does not claim confirmation without human chains."
+}
