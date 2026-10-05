@@ -2,7 +2,7 @@
 
 **Team name:** Scrypt  
 **Team leader / contact:** Salvador Satoshi  
-**Repo:** REPO_URL  
+**Repo:** https://github.com/talanham19-png/scrypt-vesuvius-winding-audit  
 **Deadline month:** October 2026 (submit by Oct 31, 11:59pm Pacific)
 
 ---

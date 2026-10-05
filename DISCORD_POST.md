@@ -12,7 +12,7 @@ Hi all — **Scrypt** here with a Progress Prize package on published PHercParis
 
 **Tooling.** CPU seed-audit CLI: `python -m checker audit|self-check` — emits population stats, single-ray checks, and chain-offset **candidates**. Confirmation still needs human labels + 3D geometry; we don’t claim label-free confirmation.
 
-Repo: **REPO_URL**
+Repo: **https://github.com/talanham19-png/scrypt-vesuvius-winding-audit**
 
 Note + figures + case catalog are in the tree. If Annotation / spiral folks would find a seed-consistency report useful on new `winding_inference` exports, we’d love feedback on the schema (`winding_inference_audit.v1`).
 
@@ -20,4 +20,4 @@ Note + figures + case catalog are in the tree. If Annotation / spiral folks woul
 
 ---
 
-**Notes for Salvador:** replace `REPO_URL` after the GitHub repo is public. Keep tone as-is (no auto-chain pitch, no hype).
+**Notes for Salvador:** replace `https://github.com/talanham19-png/scrypt-vesuvius-winding-audit` after the GitHub repo is public. Keep tone as-is (no auto-chain pitch, no hype).
